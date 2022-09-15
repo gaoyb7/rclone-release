@@ -32,7 +32,6 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        prerelease: true
         tag_name: dev_${{ steps.date.outputs.date }}
         token: ${{ secrets.GITHUB_TOKEN }}
         files: dist/*.tar.gz
