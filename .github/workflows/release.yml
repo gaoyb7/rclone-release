@@ -19,7 +19,7 @@ jobs:
 
     - name: Get current date
       id: date
-      run: echo "::set-output name=date::$(date +'%Y_%m_%d')"
+      run: echo "::set-output name=date::$(date +'%Y%m%d')"
 
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v3
