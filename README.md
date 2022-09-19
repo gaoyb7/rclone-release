@@ -27,7 +27,6 @@ rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大
         --vfs-cache-mode=full \
         --vfs-cache-max-size=4G \
         --vfs-read-chunk-size=8M \
-        --cache-dir=/data/.cache/rclone \
         --buffer-size=32M \
         115drive: /path/to/local
 ```
