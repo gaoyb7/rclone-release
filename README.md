@@ -15,11 +15,13 @@ rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大
 ```
 
 ## WebDav 服务启动
+参考：https://rclone.org/commands/rclone_serve_webdav/
 ```
 ./rclone serve webdav --addr :8081  -v 115drive:
 ```
 
 ## 本地磁盘挂载
+参考：https://rclone.org/commands/rclone_mount/
 ```
 ./rclone mount -v \
         --allow-other \
@@ -32,6 +34,7 @@ rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大
 ```
 
 ## 文件批量下载
+参考：https://rclone.org/commands/rclone_copy/
 ```
 ./rclone copy -P --multi-thread-streams=2 --transfers=5 115drive:/path/to/remote ./path/to/local
 ```
