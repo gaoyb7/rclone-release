@@ -5,6 +5,8 @@
 
 rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大，支持 WebDav 服务，本地磁盘挂载，文件批量下载到本地等功能。
 
+下载地址：https://github.com/gaoyb7/rclone-release/releases
+
 代码目录：https://github.com/gaoyb7/rclone/tree/feat-115-drive
 
 ## 配置生成
