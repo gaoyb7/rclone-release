@@ -12,7 +12,6 @@ rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大
 下载地址：https://github.com/gaoyb7/rclone-release/releases
 
 * 暂只支持 Linux x86_64 版本，程序下载后，需要额外下载加解密库 https://raw.githubusercontent.com/gaoyb7/115drive-webdav/main/115/libencode115.so 到 /usr/lib 目录下才可运行。
-* 需要使用 App 的 Cookie，浏览器版本的 Cookie 无法正常下载文件
 
 ## 配置生成
 ```
