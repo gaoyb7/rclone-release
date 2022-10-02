@@ -31,6 +31,7 @@ rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大
 ```
 ./rclone mount -v \
         --allow-other \
+        --allow-non-empty \
         --read-only \
         --vfs-cache-mode=full \
         --vfs-cache-max-size=4G \
@@ -38,6 +39,11 @@ rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大
         --buffer-size=32M \
         115drive: /path/to/local
 ```
+
+* Linux 版本需要安装 fuse 依赖
+  * Debian 系如 Ubuntu: `apt-get install -y fuse3`
+  * RedHat 系如 CentOS: `yum install -y fuse3`
+* Windows、macOS 暂不支持挂载
 
 ## 文件批量下载
 参考：https://rclone.org/commands/rclone_copy/
