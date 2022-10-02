@@ -42,6 +42,7 @@ rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大
 ## 文件批量下载
 参考：https://rclone.org/commands/rclone_copy/
 ```
+# 115网盘最多支持5个文件同时下载，单文件限制2线程
 ./rclone copy -P --multi-thread-streams=2 --transfers=5 115drive:/path/to/remote ./path/to/local
 ```
 
