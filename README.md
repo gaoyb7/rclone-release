@@ -17,18 +17,20 @@ rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大
 # 网上教程很多自行查阅
 ./rclone config
 
-# 下面的命令假设生成的配置名为 115drive，根据实际情况修改
+# 下面的命令均假设生成的配置名为 115drive，根据实际情况修改
 ```
 
 ## WebDav 服务启动
 参考：https://rclone.org/commands/rclone_serve_webdav/
 ```
+# 示例：将网盘挂载为本地 WebDav 服务，端口号 8081，支持局域网访问
 ./rclone serve webdav --addr :8081  -v 115drive:
 ```
 
 ## 本地磁盘挂载
 参考：https://rclone.org/commands/rclone_mount/
 ```
+# 示例：将网盘挂载到本地磁盘 /mnt/115drive 目录
 ./rclone mount -v \
         --allow-other \
         --allow-non-empty \
@@ -37,7 +39,7 @@ rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大
         --vfs-cache-max-size=4G \
         --vfs-read-chunk-size=8M \
         --buffer-size=32M \
-        115drive: /path/to/local
+        115drive: /mnt/115drive
 ```
 
 * Linux 版本需要安装 fuse 依赖
@@ -48,9 +50,12 @@ rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大
 ## 文件批量下载
 参考：https://rclone.org/commands/rclone_copy/
 ```
-# 115网盘最多支持5个文件同时下载，单文件限制2线程
-./rclone copy -P --multi-thread-streams=2 --transfers=5 115drive:/path/to/remote ./path/to/local
+# 示例：将网盘的 data/movies 文件夹下载到本地 /data/downloads/movies
+./rclone copy -P --multi-thread-streams=2 --transfers=5 115drive:/data/movies /data/downloads/movies
 ```
+
+* 115 网盘最多支持 5 个文件同时下载，对应的参数为 `--transfers=5`
+* 115 网盘单文件最多支持 2 线程下载，对应的参数为 `--multi-thread-streams=2`
 
 ## 其他功能
 参考 https://rclone.org/docs/
