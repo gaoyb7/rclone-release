@@ -35,7 +35,6 @@ rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大
 # 示例：将网盘挂载到本地磁盘 /mnt/115drive 目录
 ./rclone mount -v \
         --allow-other \
-        --allow-non-empty \
         --read-only \
         --vfs-cache-mode=full \
         --vfs-cache-max-size=4G \
