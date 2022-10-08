@@ -36,9 +36,9 @@ docker run -d \
     -e RCLONE_VERBOSE=1 \
     -e RCLONE_ADDR=0.0.0.0:8081 \
     -e RCLONE_CONFIG_115DRIVE_TYPE=115 \
-    -e RCLONE_CONFIG_115DRIVE_UID=11093185_F1_1664680752 \
-    -e RCLONE_CONFIG_115DRIVE_CID=d7a4fc60e126fa2da4989f867d3d598d \
-    -e RCLONE_CONFIG_115DRIVE_SEID=4decc20d1b545abf02a3155ad6eb0aedadcdbea44b450737c9a08fe509209f304905cde0faecf469c59a53d22f649d23735a582f395e845514b58f31 \
+    -e RCLONE_CONFIG_115DRIVE_UID=<your uid> \
+    -e RCLONE_CONFIG_115DRIVE_CID=<your cid> \
+    -e RCLONE_CONFIG_115DRIVE_SEID=<your seid> \
     --restart unless-stopped \
     gaoyb7/rclone:latest serve webdav 115drive:
 ```
