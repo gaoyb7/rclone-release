@@ -33,13 +33,14 @@ rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大
 # RCLONE_CONFIG_115DRIVE_UID、RCLONE_CONFIG_115DRIVE_CID、RCLONE_CONFIG_115DRIVE_SEID 参数替换成对应的 Cookie UID、CID、SEID
 docker run -d \
     -p 8081:8081 \
+    -e RCLONE_VERBOSE=1 \
+    -e RCLONE_ADDR=0.0.0.0:8081 \
     -e RCLONE_CONFIG_115DRIVE_TYPE=115 \
-    -e RCLONE_CONFIG_115DRIVE_UID=<your uid> \
-    -e RCLONE_CONFIG_115DRIVE_CID=<your cid> \
-    -e RCLONE_CONFIG_115DRIVE_SEID=<your seid> \
+    -e RCLONE_CONFIG_115DRIVE_UID=11093185_F1_1664680752 \
+    -e RCLONE_CONFIG_115DRIVE_CID=d7a4fc60e126fa2da4989f867d3d598d \
+    -e RCLONE_CONFIG_115DRIVE_SEID=4decc20d1b545abf02a3155ad6eb0aedadcdbea44b450737c9a08fe509209f304905cde0faecf469c59a53d22f649d23735a582f395e845514b58f31 \
     --restart unless-stopped \
-    gaoyb7/rclone:latest \
-    serve webdav --addr :8081 -v 115drive:
+    gaoyb7/rclone:latest serve webdav 115drive:
 ```
 
 ## 本地磁盘挂载
@@ -59,6 +60,7 @@ docker run -d \
 # docker 方式运行
 # RCLONE_CONFIG_115DRIVE_UID、RCLONE_CONFIG_115DRIVE_CID、RCLONE_CONFIG_115DRIVE_SEID 参数替换成对应的 Cookie UID、CID、SEID
 docker run -d \
+    -e RCLONE_VERBOSE=1 \
     -e RCLONE_CONFIG_115DRIVE_TYPE=115 \
     -e RCLONE_CONFIG_115DRIVE_UID=<your uid> \
     -e RCLONE_CONFIG_115DRIVE_CID=<your cid> \
@@ -68,8 +70,7 @@ docker run -d \
     --cap-add SYS_ADMIN \
     --security-opt apparmor:unconfined \
     --restart unless-stopped \
-    gaoyb7/rclone:latest \
-    mount -v \
+    gaoyb7/rclone:latest mount \
     --allow-other \
     --allow-non-empty \
     --read-only \
