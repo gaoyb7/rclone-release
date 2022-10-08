@@ -47,6 +47,5 @@ jobs:
         docker push gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-amd64
         docker push gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-i386
         docker push gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-arm64v8
-        docker push gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-armv7
         docker push gaoyb7/rclone:v1_${{ steps.date.outputs.date }}
         docker push gaoyb7/rclone:latest
