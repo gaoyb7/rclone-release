@@ -9,7 +9,7 @@ rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大
 
 ## 下载
 
-下载地址：https://github.com/gaoyb7/rclone-release/releases
+https://github.com/gaoyb7/rclone-release/releases
 
 * 不支持文件上传功能
 
