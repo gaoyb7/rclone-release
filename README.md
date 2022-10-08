@@ -29,8 +29,7 @@ rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大
 # 命令行方式运行
 ./rclone serve webdav --addr :8081  -v 115drive:
 
-# docker 方式运行
-# RCLONE_CONFIG_115DRIVE_UID、RCLONE_CONFIG_115DRIVE_CID、RCLONE_CONFIG_115DRIVE_SEID 参数替换成对应的 Cookie UID、CID、SEID
+# Docker 方式运行
 docker run -d \
     -p 8081:8081 \
     -e RCLONE_VERBOSE=1 \
@@ -42,6 +41,9 @@ docker run -d \
     --restart unless-stopped \
     gaoyb7/rclone:latest serve webdav 115drive:
 ```
+
+* Docker 方式运行无需 rclone config 生成配置
+* RCLONE_CONFIG_115DRIVE_UID、RCLONE_CONFIG_115DRIVE_CID、RCLONE_CONFIG_115DRIVE_SEID 参数替换成对应的 Cookie UID、CID、SEID
 
 ## 本地磁盘挂载
 参考：https://rclone.org/commands/rclone_mount/
@@ -57,8 +59,7 @@ docker run -d \
         --buffer-size=32M \
         115drive: /mnt/115drive
 
-# docker 方式运行
-# RCLONE_CONFIG_115DRIVE_UID、RCLONE_CONFIG_115DRIVE_CID、RCLONE_CONFIG_115DRIVE_SEID 参数替换成对应的 Cookie UID、CID、SEID
+# Docker 方式运行
 docker run -d \
     -e RCLONE_VERBOSE=1 \
     -e RCLONE_CONFIG_115DRIVE_TYPE=115 \
