@@ -65,7 +65,7 @@ docker run -d \
     -e RCLONE_CONFIG_115DRIVE_UID=<your uid> \
     -e RCLONE_CONFIG_115DRIVE_CID=<your cid> \
     -e RCLONE_CONFIG_115DRIVE_SEID=<your seid> \
-    --volume /mnt/115drive:/mnt/115drive:shared \
+    --volume /mnt:/mnt:shared \
     --device /dev/fuse \
     --cap-add SYS_ADMIN \
     --security-opt apparmor:unconfined \
