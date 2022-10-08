@@ -49,7 +49,7 @@ docker run -d \
 参考：https://rclone.org/commands/rclone_mount/
 ```
 # 示例：将网盘挂载到本地磁盘 /mnt/115drive 目录
-# 命令行运行
+# 命令行方式运行
 ./rclone mount -v \
         --allow-other \
         --read-only \
