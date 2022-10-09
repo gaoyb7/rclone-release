@@ -35,21 +35,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Docker Manifest Create
-      run: |
-        docker manifest create gaoyb7/rclone:v1_${{ steps.date.outputs.date }} \
-            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-amd64 \
-            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-i386 \
-            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-arm64v8 \
-            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-armv7 \
-            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-armv6
-        docker manifest create gaoyb7/rclone:latest \
-            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-amd64 \
-            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-i386 \
-            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-arm64v8 \
-            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-armv7 \
-            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-armv6
-
     - name: Github Release
       uses: softprops/action-gh-release@v1
       with:
@@ -64,5 +49,17 @@ jobs:
         docker push gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-arm64v8
         docker push gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-armv7
         docker push gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-armv6
+        docker manifest create gaoyb7/rclone:v1_${{ steps.date.outputs.date }} \
+            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-amd64 \
+            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-i386 \
+            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-arm64v8 \
+            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-armv7 \
+            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-armv6
+        docker manifest create gaoyb7/rclone:latest \
+            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-amd64 \
+            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-i386 \
+            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-arm64v8 \
+            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-armv7 \
+            --amend gaoyb7/rclone:v1_${{ steps.date.outputs.date }}-armv6
         docker manifest push gaoyb7/rclone:v1_${{ steps.date.outputs.date }}
         docker manifest push gaoyb7/rclone:latest
