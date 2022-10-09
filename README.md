@@ -91,7 +91,8 @@ docker run -d \
 * Linux 版本需要安装 fuse 依赖
   * Debian 系如 Ubuntu: `apt-get install -y fuse3`
   * RedHat 系如 CentOS: `yum install -y fuse3`
-* Windows、macOS 暂不支持挂载
+* Windows 版本需要安装 WinFsp 依赖，https://winfsp.dev/
+* macOSX 版本需要安装 maxFUSE 依赖，https://osxfuse.github.io/
 
 ## 文件批量下载
 参考：https://rclone.org/commands/rclone_copy/
