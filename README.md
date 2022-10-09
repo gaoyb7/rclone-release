@@ -14,6 +14,7 @@ https://github.com/gaoyb7/rclone-release/releases
 * 不支持文件上传功能
 
 ## 配置生成
+### 方式一：通过 rclone config 生成本地配置
 ```
 # 根据提示生成对应的 115 配置，生成配置后，可进行 rclone WebDav 服务启动，磁盘挂载等操作
 # 网上教程很多自行查阅
@@ -22,6 +23,11 @@ https://github.com/gaoyb7/rclone-release/releases
 # 下面的命令均假设生成的配置名为 115drive，根据实际情况修改
 ```
 
+### 方式二：通过环境变量获取配置
+参考：https://rclone.org/docs/#config-file
+
+rclone 支持从环境变量生成并读取配置，具体环境变量的格式为 `RCLONE_CONFIG_{{remote}}_{{param}}`，其中 `{{remote}}` 为配置名，`{{param}}` 为对应的参数名，均为大写。如配置名为 115drive，参数 uid，对应的环境变量为 `RCLONE_CONFIG_115DRIVE_UID`。其中 `RCLONE_CONFIG_{{remote}}_TYPE` 用于指定网盘类型，115 网盘对应为 115
+
 ## WebDav 服务启动
 参考：https://rclone.org/commands/rclone_serve_webdav/
 ```
@@ -29,7 +35,7 @@ https://github.com/gaoyb7/rclone-release/releases
 # 命令行方式运行
 ./rclone serve webdav --addr :8081  -v 115drive:
 
-# Docker 方式运行
+# Docker 方式运行，从环境变量读取配置
 docker run -d \
     -p 8081:8081 \
     -e RCLONE_VERBOSE=1 \
@@ -43,7 +49,7 @@ docker run -d \
 ```
 
 * Docker 方式运行无需 rclone config 生成配置
-* RCLONE_CONFIG_115DRIVE_UID、RCLONE_CONFIG_115DRIVE_CID、RCLONE_CONFIG_115DRIVE_SEID 参数替换成对应的 Cookie UID、CID、SEID
+* `RCLONE_CONFIG_115DRIVE_UID`、`RCLONE_CONFIG_115DRIVE_CID`、`RCLONE_CONFIG_115DRIVE_SEID` 参数替换成对应的 Cookie UID、CID、SEID
 
 ## 本地磁盘挂载
 参考：https://rclone.org/commands/rclone_mount/
@@ -59,7 +65,7 @@ docker run -d \
         --buffer-size=32M \
         115drive: /mnt/115drive
 
-# Docker 方式运行
+# Docker 方式运行，从环境变量读取配置
 docker run -d \
     -e RCLONE_VERBOSE=1 \
     -e RCLONE_CONFIG_115DRIVE_TYPE=115 \
