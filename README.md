@@ -9,7 +9,7 @@ rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大
 
 ## 下载
 
-下载地址：https://github.com/gaoyb7/rclone-release/releases
+https://github.com/gaoyb7/rclone-release/releases
 
 * 不支持文件上传功能
 
@@ -26,13 +26,30 @@ rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大
 参考：https://rclone.org/commands/rclone_serve_webdav/
 ```
 # 示例：将网盘挂载为本地 WebDav 服务，端口号 8081，支持局域网访问
+# 命令行方式运行
 ./rclone serve webdav --addr :8081  -v 115drive:
+
+# Docker 方式运行
+docker run -d \
+    -p 8081:8081 \
+    -e RCLONE_VERBOSE=1 \
+    -e RCLONE_ADDR=0.0.0.0:8081 \
+    -e RCLONE_CONFIG_115DRIVE_TYPE=115 \
+    -e RCLONE_CONFIG_115DRIVE_UID=<your uid> \
+    -e RCLONE_CONFIG_115DRIVE_CID=<your cid> \
+    -e RCLONE_CONFIG_115DRIVE_SEID=<your seid> \
+    --restart unless-stopped \
+    gaoyb7/rclone:latest serve webdav 115drive:
 ```
+
+* Docker 方式运行无需 rclone config 生成配置
+* RCLONE_CONFIG_115DRIVE_UID、RCLONE_CONFIG_115DRIVE_CID、RCLONE_CONFIG_115DRIVE_SEID 参数替换成对应的 Cookie UID、CID、SEID
 
 ## 本地磁盘挂载
 参考：https://rclone.org/commands/rclone_mount/
 ```
 # 示例：将网盘挂载到本地磁盘 /mnt/115drive 目录
+# 命令行方式运行
 ./rclone mount -v \
         --allow-other \
         --read-only \
@@ -41,6 +58,28 @@ rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大
         --vfs-read-chunk-size=8M \
         --buffer-size=32M \
         115drive: /mnt/115drive
+
+# Docker 方式运行
+docker run -d \
+    -e RCLONE_VERBOSE=1 \
+    -e RCLONE_CONFIG_115DRIVE_TYPE=115 \
+    -e RCLONE_CONFIG_115DRIVE_UID=<your uid> \
+    -e RCLONE_CONFIG_115DRIVE_CID=<your cid> \
+    -e RCLONE_CONFIG_115DRIVE_SEID=<your seid> \
+    --volume /mnt:/mnt:shared \
+    --device /dev/fuse \
+    --cap-add SYS_ADMIN \
+    --security-opt apparmor:unconfined \
+    --restart unless-stopped \
+    gaoyb7/rclone:latest mount \
+    --allow-other \
+    --allow-non-empty \
+    --read-only \
+    --vfs-cache-mode=full \
+    --vfs-cache-max-size=4G \
+    --vfs-read-chunk-size=8M \
+    --buffer-size=32M \
+    115drive: /mnt/115drive
 ```
 
 * Linux 版本需要安装 fuse 依赖
@@ -61,5 +100,3 @@ rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大
 ## 其他功能
 参考 https://rclone.org/docs/
 
-## Docker 运行
-TODO
