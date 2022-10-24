@@ -67,7 +67,7 @@ docker run -d \
         115drive: /mnt/115drive
 
 # 命令行方式运行，Windows 系统，挂载为 X: 盘
-.\rclone.exe mount -v --read-only --vfs-cache-mode=full --vfs-cache-max-size=4G --vfs-read-chunk-size=8M --buffer-size=32M --network-mode 115drive: X:
+.\rclone.exe mount -v --read-only --vfs-cache-mode=minimal --vfs-cache-max-size=4G --vfs-read-chunk-size=4M --buffer-size=32M --network-mode 115drive: X:
 
 # Docker 方式运行，从环境变量读取配置
 docker run -d \
