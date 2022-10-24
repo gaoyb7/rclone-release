@@ -60,8 +60,6 @@ docker run -d \
 ./rclone mount -v \
         --allow-other \
         --read-only \
-        --vfs-cache-mode=minimal \
-        --vfs-cache-max-size=4G \
         --vfs-read-chunk-size=4M \
         --buffer-size=32M \
         115drive: /mnt/115drive
@@ -85,8 +83,6 @@ docker run -d \
     --allow-other \
     --allow-non-empty \
     --read-only \
-    --vfs-cache-mode=minimal \
-    --vfs-cache-max-size=4G \
     --vfs-read-chunk-size=4M \
     --buffer-size=32M \
     115drive: /mnt/115drive
