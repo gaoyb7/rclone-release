@@ -55,7 +55,7 @@ docker run -d \
 ## 本地磁盘挂载
 参考：https://rclone.org/commands/rclone_mount/
 ```
-# 示例：将网盘挂载到本地磁盘 /mnt/115drive 目录
+# 示例：将网盘挂载到本地磁盘 /mnt/115drive 目录（/mnt/115drive 必须为空目录）
 # 命令行方式运行
 ./rclone mount -v \
         --allow-other \
