@@ -29,7 +29,7 @@ https://github.com/gaoyb7/rclone-release/releases
 
 rclone 支持从环境变量生成并读取配置，具体环境变量的格式为 `RCLONE_CONFIG_{{remote}}_{{param}}`，其中 `{{remote}}` 为配置名，`{{param}}` 为对应的参数名，均为大写。如配置名为 115drive，参数 uid，对应的环境变量为 `RCLONE_CONFIG_115DRIVE_UID`。其中 `RCLONE_CONFIG_{{remote}}_TYPE` 用于指定网盘类型，115 网盘对应为 115
 
-## WebDav 服务启动
+## WebDav 服务
 参考：https://rclone.org/commands/rclone_serve_webdav/
 ```
 # 示例：将网盘挂载为本地 WebDav 服务，端口号 8081，支持局域网访问
