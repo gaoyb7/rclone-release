@@ -34,7 +34,7 @@ rclone 支持从环境变量生成并读取配置，具体环境变量的格式�
 ```
 # 示例：将网盘挂载为本地 WebDav 服务，端口号 8081，支持局域网访问
 # 命令行方式运行
-./rclone serve webdav --addr :8081 --vfs-read-chunk-size=4M --buffer-size=32M -v 115drive:
+./rclone serve webdav --addr 0.0.0.0:8081 --vfs-read-chunk-size=4M --buffer-size=32M -v 115drive:
 
 # Docker 方式运行，从环境变量读取配置
 docker run -d \
