@@ -12,7 +12,7 @@ rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大
 
 https://github.com/gaoyb7/rclone-release/releases
 
-* 功能和原版 rclone 基本一致，不提供相关的功能使用咨询，自行找教程解决
+* 功能和原版 rclone 一致，不提供相关的功能使用咨询，自行找教程解决
 * 不支持文件上传功能
 
 ## 配置生成
