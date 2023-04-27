@@ -4,7 +4,7 @@
 [![Downloads](https://img.shields.io/github/downloads/gaoyb7/rclone-release/total)](https://github.com/gaoyb7/rclone-release/releases)
 [![Docker Image](https://img.shields.io/docker/pulls/gaoyb7/rclone)](https://hub.docker.com/r/gaoyb7/rclone)
 
-rclone 改版，兼容支持 115 网盘，对比 115drive-webdav 功能更强大，支持 WebDav 服务，本地磁盘挂载，文件批量下载到本地等功能。
+rclone 改版，兼容支持 115 网盘。
 
 代码目录：https://github.com/gaoyb7/rclone/tree/feat-115-drive
 
