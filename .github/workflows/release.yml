@@ -30,7 +30,7 @@ jobs:
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v3
       with:
-        version: v4.2.0
+        version: v1.15.2
         args: release --snapshot --clean
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
