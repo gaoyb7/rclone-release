@@ -85,6 +85,7 @@ docker run -d \
     --allow-non-empty \
     --read-only \
     --vfs-read-chunk-size=4M \
+    --vfs-cache-mode=full \
     --buffer-size=32M \
     115drive: /mnt/115drive
 ```
