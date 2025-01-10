@@ -46,12 +46,13 @@ docker run -d \
     -e RCLONE_CONFIG_115DRIVE_UID=<your uid> \
     -e RCLONE_CONFIG_115DRIVE_CID=<your cid> \
     -e RCLONE_CONFIG_115DRIVE_SEID=<your seid> \
+    -e RCLONE_CONFIG_115DRIVE_KID=<your kid> \
     --restart unless-stopped \
     gaoyb7/rclone:latest serve webdav --vfs-read-chunk-size=4M --buffer-size=32M -v 115drive:
 ```
 
 * Docker 方式运行无需 rclone config 生成配置
-* `RCLONE_CONFIG_115DRIVE_UID`、`RCLONE_CONFIG_115DRIVE_CID`、`RCLONE_CONFIG_115DRIVE_SEID` 参数替换成对应的 Cookie UID、CID、SEID
+* `RCLONE_CONFIG_115DRIVE_UID`、`RCLONE_CONFIG_115DRIVE_CID`、`RCLONE_CONFIG_115DRIVE_SEID`、`RCLONE_CONFIG_115DRIVE_KID` 参数替换成对应的 Cookie UID、CID、SEID、KID
 
 ## 本地磁盘挂载
 参考：https://rclone.org/commands/rclone_mount/
