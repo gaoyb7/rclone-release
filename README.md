@@ -16,6 +16,13 @@ https://github.com/gaoyb7/rclone-release/releases
 * 不支持文件上传功能，也无相关的计划
 
 ## 配置生成
+配置参数：
+* uid: 对应 cookie 中的 UID
+* cid: 对应 cookie 中的 CID
+* seid: 对应 cookie 中的 SEID
+* kid: 对应 cookie 中的 KID
+* pacer_min_sleep: 115 API 两次请求之间的最小时间间隔，默认为 500ms，调大该值可减少接口封控几率
+
 ### 方式一：通过 rclone config 生成本地配置
 ```
 # 根据提示生成对应的 115 配置，生成配置后，可进行 rclone WebDav 服务启动，磁盘挂载等操作
@@ -47,6 +54,7 @@ docker run -d \
     -e RCLONE_CONFIG_115DRIVE_CID=<your cid> \
     -e RCLONE_CONFIG_115DRIVE_SEID=<your seid> \
     -e RCLONE_CONFIG_115DRIVE_KID=<your kid> \
+    -e RCLONE_CONFIG_115DRIVE_PACER_MIN_SLEEP=500ms \
     --restart unless-stopped \
     gaoyb7/rclone:latest serve webdav --vfs-read-chunk-size=4M --buffer-size=32M -v 115drive:
 ```
@@ -76,6 +84,8 @@ docker run -d \
     -e RCLONE_CONFIG_115DRIVE_UID=<your uid> \
     -e RCLONE_CONFIG_115DRIVE_CID=<your cid> \
     -e RCLONE_CONFIG_115DRIVE_SEID=<your seid> \
+    -e RCLONE_CONFIG_115DRIVE_KID=<your kid> \
+    -e RCLONE_CONFIG_115DRIVE_PACER_MIN_SLEEP=500ms \
     --volume /mnt:/mnt:shared \
     --device /dev/fuse \
     --cap-add SYS_ADMIN \
